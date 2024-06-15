@@ -11,7 +11,7 @@
 public class Aplic extends javax.swing.JFrame {
 
     /**
-     * Creates new form Aplic
+     * Creates new form 
      */
     public Aplic() {
         initComponents();
@@ -43,64 +43,49 @@ public class Aplic extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel1.setText("RA");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(428, 93, 21, 20);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Nome do aluno");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(47, 90, 109, 20);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel3.setText("Nota P1");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(78, 214, 56, 20);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("Nota P2");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(409, 216, 56, 20);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel5.setText("Média");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(210, 320, 41, 20);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel6.setText("Situação");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(530, 310, 59, 20);
-        getContentPane().add(txtRA);
-        txtRA.setBounds(483, 93, 170, 20);
-        getContentPane().add(txtNomeAluno);
-        txtNomeAluno.setBounds(160, 92, 170, 20);
-        getContentPane().add(txtP1);
-        txtP1.setBounds(160, 216, 170, 20);
-        getContentPane().add(txtP2);
-        txtP2.setBounds(483, 216, 170, 20);
-        getContentPane().add(txtMedia);
-        txtMedia.setBounds(180, 360, 95, 42);
-        getContentPane().add(txtSituacao);
-        txtSituacao.setBounds(510, 350, 95, 42);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, -1, -1));
+        getContentPane().add(txtRA, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 170, -1));
+        getContentPane().add(txtNomeAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 170, -1));
+        getContentPane().add(txtP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 170, -1));
+        getContentPane().add(txtP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 170, -1));
+        getContentPane().add(txtMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 95, 42));
+        getContentPane().add(txtSituacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 95, 42));
 
         btnCalcular.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCalcular.setText("Calcular");
-        getContentPane().add(btnCalcular);
-        btnCalcular.setBounds(130, 470, 80, 25);
+        getContentPane().add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, 80, -1));
 
         btnLimpar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpar.setText("Limpar");
-        getContentPane().add(btnLimpar);
-        btnLimpar.setBounds(330, 470, 73, 23);
+        getContentPane().add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 510, 80, -1));
 
         btnSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSair.setText("Sair");
-        getContentPane().add(btnSair);
-        btnSair.setBounds(500, 470, 73, 23);
+        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,38 +93,6 @@ public class Aplic extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Aplic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Aplic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Aplic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Aplic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Aplic().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnLimpar;
