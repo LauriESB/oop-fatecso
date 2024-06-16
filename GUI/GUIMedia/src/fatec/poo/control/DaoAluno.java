@@ -59,7 +59,7 @@ public class DaoAluno {
         PreparedStatement ps;
         try {
             ps = conn.prepareStatement("UPDATE tb_aluno SET nome = ?, " +
-                                       "notaP1 = ?, " + "notaP1 = ?, " +
+                                       "notaP1 = ?, " + "notaP2 = ?, " +
                                        "where ra = ?");
             ps.setString(1, aluno.getNome());
             ps.setDouble(2, aluno.getNotaP1());
