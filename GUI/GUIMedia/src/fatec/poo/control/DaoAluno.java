@@ -41,7 +41,7 @@ public class DaoAluno {
     public void inserir(Aluno objAluno) {
         PreparedStatement ps;
         try {
-            ps = conn.prepareStatement("INSERT INTO tb_aluno VALUES(?, ?, ?, ?)");
+            ps = conn.prepareStatement("INSERT INTO tb_aluno VALUES(?,?,?,?)");
             ps.setInt(1, objAluno.getRA());
             ps.setString(2, objAluno.getNome());
             ps.setDouble(3, objAluno.getNotaP1());
@@ -55,16 +55,16 @@ public class DaoAluno {
     }
     //
     //
-    public void alterar(Aluno objAluno) {
+    public void alterar(Aluno aluno) {
         PreparedStatement ps;
         try {
             ps = conn.prepareStatement("UPDATE tb_aluno SET nome = ?, " +
                                        "notaP1 = ?, " + "notaP1 = ?, " +
                                        "where ra = ?");
-            ps.setString(1, objAluno.getNome());
-            ps.setDouble(2, objAluno.getNotaP1());
-            ps.setDouble(3, objAluno.getNotaP2());
-            ps.setInt(4, objAluno.getRA());
+            ps.setString(1, aluno.getNome());
+            ps.setDouble(2, aluno.getNotaP1());
+            ps.setDouble(3, aluno.getNotaP2());
+            ps.setInt(4, aluno.getRA());
             
             ps.execute();
         
@@ -74,13 +74,15 @@ public class DaoAluno {
     }
     //
     //
-    public void excluir(int ra) {
-        Aluno objAluno = null;
+    public void excluir(Aluno aluno) {
         
         PreparedStatement ps;
         try {
             ps = conn.prepareStatement("DELETE FROM tb_aluno WHERE ra = ?");
-            ps.setInt(1, objAluno.getRA());       
+            ps.setInt(1, aluno.getRA());
+            
+            ps.execute();
+            
         }catch(SQLException ex) {
             System.out.println(ex.toString());
         }
