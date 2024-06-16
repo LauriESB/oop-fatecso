@@ -259,9 +259,9 @@ public class Aplic extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        con = new Conexao("SYSTEM","Lauri@ellen12");
+        con = new Conexao("system","Lauri@ellen12");
         con.setDriver("oracle.jdbc.driver.OracleDriver");
-        con.setConnectionString("jdbc:oracle:thin:@192.166.1.6:1521:xe");
+        con.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
         daoAluno = new DaoAluno(con.abrirConexao());
     }//GEN-LAST:event_formWindowOpened
 
