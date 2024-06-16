@@ -45,6 +45,14 @@ public class Aplic extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -249,6 +257,17 @@ public class Aplic extends javax.swing.JFrame {
             btnExcluir.setEnabled(false);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        con = new Conexao("SYSTEM","Lauri@ellen12");
+        con.setDriver("oracle.jdbc.driver.OracleDriver");
+        con.setConnectionString("jdbc:oracle:thin:@192.166.1.6:1521:xe");
+        daoAluno = new DaoAluno(con.abrirConexao());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        con.fecharConexao();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
