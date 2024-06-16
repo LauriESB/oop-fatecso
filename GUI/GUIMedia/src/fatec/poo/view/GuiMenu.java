@@ -1,3 +1,5 @@
+package fatec.poo.view;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -60,8 +62,6 @@ public class GuiMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 279, Short.MAX_VALUE)
         );
-
-        getAccessibleContext().setAccessibleName("GUI Menu");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

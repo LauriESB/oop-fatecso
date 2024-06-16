@@ -32,7 +32,7 @@ public class Aluno {
     }
     
     
-    public void setNota2(double notaP2 ) {
+    public void setNotaP2(double notaP2 ) {
         this.notaP2 = notaP2;
     }
     public double getNotaP2() {
