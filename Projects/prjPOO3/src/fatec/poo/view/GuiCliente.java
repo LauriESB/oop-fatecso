@@ -45,12 +45,12 @@ public class GuiCliente extends javax.swing.JFrame {
         lblCEP = new javax.swing.JLabel();
         txtCEP = new javax.swing.JTextField();
         lblLimiteDisponivel = new javax.swing.JLabel();
-        txtLimiteDisponivel = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
         btnIncluir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        lblLimite = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,9 +108,6 @@ public class GuiCliente extends javax.swing.JFrame {
         lblLimiteDisponivel.setText("Limite disponível");
         getContentPane().add(lblLimiteDisponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
 
-        txtLimiteDisponivel.setEnabled(false);
-        getContentPane().add(txtLimiteDisponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 100, -1));
-
         btnConsultar.setText("Consultar");
         getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, -1, -1));
 
@@ -128,6 +125,9 @@ public class GuiCliente extends javax.swing.JFrame {
 
         btnSair.setText("Sair");
         getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, -1, -1));
+
+        lblLimite.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lblLimite, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 110, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,6 +147,7 @@ public class GuiCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblLimite;
     private javax.swing.JLabel lblLimiteCredito;
     private javax.swing.JLabel lblLimiteDisponivel;
     private javax.swing.JLabel lblNome;
@@ -157,7 +158,6 @@ public class GuiCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtLimiteCredito;
-    private javax.swing.JTextField txtLimiteDisponivel;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtTelefone01;
