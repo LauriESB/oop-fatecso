@@ -33,6 +33,7 @@ public class DaoCliente {
                 objCliente.setEndereco(rs.getString("endereco"));
                 objCliente.setCidade(rs.getString("cidade"));
                 objCliente.setUf(rs.getString("uf"));
+                objCliente.setDdd(rs.getString("ddd"));
                 objCliente.setTelefone(rs.getString("telefone"));
                 objCliente.setCep(rs.getString("cep"));
                 objCliente.setLimiteCredito(rs.getDouble("limiteCredito"));
@@ -48,16 +49,17 @@ public class DaoCliente {
     public void inserir(Cliente objCliente) {
         PreparedStatement ps;
         try {
-            ps = conn.prepareStatement("INSERT INTO tb_cliente VALUES(?,?,?,?,?,?,?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO tb_cliente VALUES(?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, objCliente.getCpf());
             ps.setString(2, objCliente.getNome());
             ps.setString(3, objCliente.getEndereco());
             ps.setString(4, objCliente.getCidade());
             ps.setString(5, objCliente.getUf());
-            ps.setString(6, objCliente.getTelefone());
-            ps.setString(7, objCliente.getCep());
-            ps.setDouble(8, objCliente.getLimiteCredito());
-            ps.setDouble(9, objCliente.getLimiteDisponivel());
+            ps.setString(6, objCliente.getDdd());
+            ps.setString(7, objCliente.getTelefone());
+            ps.setString(8, objCliente.getCep());
+            ps.setDouble(9, objCliente.getLimiteCredito());
+            ps.setDouble(10, objCliente.getLimiteDisponivel());
                       
             ps.execute(); //envia a instrução SQL para o SGBD
         } catch (SQLException ex) {
@@ -69,18 +71,19 @@ public class DaoCliente {
         PreparedStatement ps;
         try {
             ps = conn.prepareStatement("UPDATE tb_cliente set endereco = ?, " + "cidade = ?, " +
-                                       "uf = ?, " + "telefone = ?, " + "cep = ?, " +
+                                       "uf = ?, " + "ddd = ?," + "telefone = ?, " + "cep = ?, " +
                                        "limiteCredito = ?, " + "limiteDisponivel = ? " +
                                         "where cpf = ?");
             
             ps.setString(1, cliente.getEndereco());
             ps.setString(2, cliente.getCidade());
             ps.setString(3, cliente.getUf());
-            ps.setString(4, cliente.getTelefone());
-            ps.setString(5, cliente.getCep());
-            ps.setDouble(6, cliente.getLimiteCredito());
-            ps.setDouble(7, cliente.getLimiteDisponivel());
-            ps.setString(8, cliente.getCpf());
+            ps.setString(4, cliente.getDdd());
+            ps.setString(5, cliente.getTelefone());
+            ps.setString(6, cliente.getCep());
+            ps.setDouble(7, cliente.getLimiteCredito());
+            ps.setDouble(8, cliente.getLimiteDisponivel());
+            ps.setString(9, cliente.getCpf());
            
            
             ps.execute(); //Envia a instrução SQL para o SGBD

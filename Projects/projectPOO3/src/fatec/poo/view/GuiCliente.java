@@ -44,7 +44,7 @@ public class GuiCliente extends javax.swing.JFrame {
         txtCidade = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
         txtLimiteCredito = new javax.swing.JTextField();
-        txtTelefone01 = new javax.swing.JTextField();
+        txtDDD = new javax.swing.JTextField();
         lblUF = new javax.swing.JLabel();
         cbxUF = new javax.swing.JComboBox<>();
         lblCEP = new javax.swing.JLabel();
@@ -102,8 +102,8 @@ public class GuiCliente extends javax.swing.JFrame {
         txtLimiteCredito.setEnabled(false);
         getContentPane().add(txtLimiteCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 90, -1));
 
-        txtTelefone01.setEnabled(false);
-        getContentPane().add(txtTelefone01, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 30, -1));
+        txtDDD.setEnabled(false);
+        getContentPane().add(txtDDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 30, -1));
 
         lblUF.setText("UF");
         getContentPane().add(lblUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
@@ -192,6 +192,7 @@ public class GuiCliente extends javax.swing.JFrame {
            txtEndereco.setEnabled(true);
            txtCidade.setEnabled(true);
            cbxUF.setEnabled(true);
+           txtDDD.setEnabled(true);
            txtTelefone.setEnabled(true);
            txtCEP.setEnabled(true);
            txtLimiteCredito.setEnabled(true);
@@ -207,10 +208,11 @@ public class GuiCliente extends javax.swing.JFrame {
        else{ //encontrou o objeto na BD
         
           txtNome.setText(cliente.getNome());
-            txtCPF.setText(cliente.getCpf());
+          txtCPF.setText(cliente.getCpf());
           txtEndereco.setText(cliente.getEndereco());
           txtCidade.setText(cliente.getCidade()); 
           cbxUF.setSelectedItem(cliente.getUf());
+          txtDDD.setText(cliente.getDdd());
           txtTelefone.setText(cliente.getTelefone());
           txtCEP.setText(cliente.getCep());
           txtLimiteCredito.setText(String.valueOf(cliente.getLimiteCredito()));
@@ -221,6 +223,7 @@ public class GuiCliente extends javax.swing.JFrame {
            txtEndereco.setEnabled(true);
            txtCidade.setEnabled(true);
            cbxUF.setEnabled(true);
+           txtDDD.setEnabled(true);
            txtTelefone.setEnabled(true);
            txtCEP.setEnabled(true);
            txtLimiteCredito.setEnabled(true);
@@ -240,12 +243,12 @@ public class GuiCliente extends javax.swing.JFrame {
        cliente.setEndereco(txtEndereco.getText());
        cliente.setCidade(txtCidade.getText());
        cliente.setUf(cbxUF.getSelectedItem().toString());
+       cliente.setDdd(txtDDD.getText());
        cliente.setTelefone(txtTelefone.getText());
        cliente.setCep(txtCEP.getText());
        cliente.setLimiteCredito(Double.parseDouble(txtLimiteCredito.getText()));
        cliente.setLimiteDisponivel(Double.parseDouble(txtLimiteCredito.getText()));
-       //Realizando a inserção do objeto da classe Aluno
-       //no SGBD via objeto da classe DAOAluno 
+      
        daoCliente.inserir(cliente);
          
        //Incializando a GUI 
@@ -254,6 +257,7 @@ public class GuiCliente extends javax.swing.JFrame {
        txtEndereco.setText(null);
        txtCidade.setText(null);
        cbxUF.setSelectedItem(-1);
+       txtDDD.setText(null);
        txtTelefone.setText(null);
        txtCEP.setText(null);
        txtLimiteCredito.setText(null);
@@ -266,6 +270,7 @@ public class GuiCliente extends javax.swing.JFrame {
        txtEndereco.setEnabled(false);
        txtCidade.setEnabled(false);
        cbxUF.setEnabled(false);
+       txtDDD.setEnabled(false);
        txtTelefone.setEnabled(false);
        txtCEP.setEnabled(false);
        txtLimiteCredito.setEnabled(false);
@@ -283,6 +288,7 @@ public class GuiCliente extends javax.swing.JFrame {
            cliente.setEndereco(txtEndereco.getText());
            cliente.setCidade(txtCidade.getText());
            cliente.setUf(cbxUF.getSelectedItem().toString());
+           cliente.setDdd(txtDDD.getText());
            cliente.setTelefone(txtTelefone.getText());
            cliente.setCep(txtCEP.getText());
            cliente.setLimiteCredito(Double.parseDouble(txtLimiteCredito.getText()));
@@ -296,6 +302,7 @@ public class GuiCliente extends javax.swing.JFrame {
         txtEndereco.setText(null);
         txtCidade.setText(null);
         cbxUF.setSelectedItem(-1);
+        txtDDD.setText(null);
         txtTelefone.setText(null);
         txtCEP.setText(null);
         txtLimiteCredito.setText(null);
@@ -308,6 +315,7 @@ public class GuiCliente extends javax.swing.JFrame {
         txtEndereco.setEnabled(false);
         txtCidade.setEnabled(false);
         cbxUF.setEnabled(false);
+        txtDDD.setEnabled(false);
         txtTelefone.setEnabled(false);
         txtCEP.setEnabled(false);
         txtLimiteCredito.setEnabled(false);
@@ -328,6 +336,7 @@ public class GuiCliente extends javax.swing.JFrame {
                 txtEndereco.setText(null);
                 txtCidade.setText(null);
                 cbxUF.setSelectedItem(-1);
+                txtDDD.setText(null);
                 txtTelefone.setText(null);
                 txtCEP.setText(null);
                 txtLimiteCredito.setText(null);
@@ -340,6 +349,7 @@ public class GuiCliente extends javax.swing.JFrame {
                 txtEndereco.setEnabled(false);
                 txtCidade.setEnabled(false);
                 cbxUF.setEnabled(false);
+                txtDDD.setEnabled(false);
                 txtTelefone.setEnabled(false);
                 txtCEP.setEnabled(false);
                 txtLimiteCredito.setEnabled(false);
@@ -380,11 +390,11 @@ public class GuiCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtCEP;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtDDD;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtLimiteCredito;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;
-    private javax.swing.JTextField txtTelefone01;
     // End of variables declaration//GEN-END:variables
     private DaoCliente daoCliente;
     private Cliente cliente;
