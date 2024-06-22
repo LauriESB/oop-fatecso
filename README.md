@@ -13,4 +13,4 @@ One of the disciplines required in my undergraduate course at FATEC Sorocaba is 
 
 ### Path
 
-I started completing generalization and specialization exercises, with and without polymorphism, moved on to binary association, array lists, then finished by configuring and connecting my GUIs to the SQL Developer database.
+I started completing generalization and specialization exercises, with and without polymorphism, moved on to binary association, array lists, then finished by configuring and connecting my GUIs to the SQL Developer Database.
