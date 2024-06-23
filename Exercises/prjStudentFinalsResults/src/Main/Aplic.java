@@ -15,7 +15,6 @@ public class Aplic {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double[] list = new double[4];
         
         System.out.println("Student ID number: ");
         int id = Integer.valueOf(scanner.nextLine());
