@@ -249,7 +249,7 @@ public class GuiVendedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        prepCon = new PreparaConexao("system","Lauri@ellen12");
+        prepCon = new PreparaConexao("","");
         prepCon.setDriver("oracle.jdbc.driver.OracleDriver");
         prepCon.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
         daoVendedor = new DaoVendedor(prepCon.abrirConexao());
