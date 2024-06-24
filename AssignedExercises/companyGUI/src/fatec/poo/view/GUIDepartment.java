@@ -56,13 +56,15 @@ public class GUIDepartment extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel1.setText("Abbreviation");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel2.setText("Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 171, 20));
-        getContentPane().add(txtAbrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 80, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
+        txtName.setEnabled(false);
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 171, 30));
+        getContentPane().add(txtAbrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 80, 30));
 
         btnDelete.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         btnDelete.setText("Delete");
@@ -138,9 +140,10 @@ public class GUIDepartment extends javax.swing.JFrame {
             
             btnSearch.setEnabled(false);
             btnInsert.setEnabled(true);
-            btnUpdate.setEnabled(true);
+            btnUpdate.setEnabled(false);
             btnDelete.setEnabled(false);
         }else {
+            txtName.setText(department.getName());
             txtAbrev.setEnabled(false);
             txtName.setEnabled(true);
             txtName.requestFocus();
@@ -159,6 +162,7 @@ public class GUIDepartment extends javax.swing.JFrame {
         
         txtAbrev.setText(null);
         txtName.setText(null);
+        txtName.setEnabled(false);
         txtAbrev.requestFocus();
         
         btnSearch.setEnabled(true);  
@@ -176,6 +180,8 @@ public class GUIDepartment extends javax.swing.JFrame {
         txtAbrev.setText(null);
         txtName.setText(null);
         txtAbrev.requestFocus();
+        txtAbrev.setEnabled(true);
+        txtName.setEnabled(false);
         
         btnSearch.setEnabled(true);  
         btnInsert.setEnabled(false);

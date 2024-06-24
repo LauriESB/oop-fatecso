@@ -41,6 +41,8 @@ public class DAODepartment {
             ps = conn.prepareStatement("insert into tb_department values (?,?)");
             ps.setString(1, department.getAbbreviation());
             ps.setString(2, department.getName());
+            
+            ps.execute();
         }catch(SQLException e) {
             System.out.println(e.toString());
         }
