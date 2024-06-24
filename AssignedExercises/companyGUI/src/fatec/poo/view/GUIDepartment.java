@@ -118,7 +118,7 @@ public class GUIDepartment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        dbCon = new DBConnection("system", "Lauri@ellen12");
+        dbCon = new DBConnection("", "");
         dbCon.setDriver("oracle.jdbc.driver.OracleDriver");
         dbCon.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
         
