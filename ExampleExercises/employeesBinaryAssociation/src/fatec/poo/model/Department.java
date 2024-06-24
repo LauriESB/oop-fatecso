@@ -25,6 +25,7 @@ public class Department {
     public void addEmployee(Employee e) {
         employee[numEmploy] = e;
         numEmploy++;
+        e.setDepartment(this);
     }
     public void listEmployees() {
         System.out.println("Department info");

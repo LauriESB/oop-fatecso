@@ -44,6 +44,7 @@ public class Project {
     public void addEmployee(Employee e) {
         employee[numEmploy] = e;
         numEmploy++;
+        e.setProject(this);
     }
     
     public void listEmployees() {

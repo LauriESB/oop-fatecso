@@ -78,10 +78,8 @@ public class Aplic {
         ce.setProject(prj);
         
         dpto.addEmployee(he);
-        he.setDepartment(dpto);
         
         prj.addEmployee(he);
-        he.setProject(prj);
         
         prj.listEmployees();
         dpto.listEmployees();
