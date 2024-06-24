@@ -5,6 +5,11 @@
  */
 package fatec.poo.view;
 
+import fatec.poo.control.DAODepartment;
+import fatec.poo.control.DBConnection;
+import fatec.poo.model.Department;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ichla
@@ -39,6 +44,14 @@ public class GUIDepartment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Department");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -54,28 +67,140 @@ public class GUIDepartment extends javax.swing.JFrame {
         btnDelete.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.setEnabled(false);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 70, -1));
 
         btnSearch.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 70, -1));
 
         btnUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setEnabled(false);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
 
         btnInsert.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         btnInsert.setText("Add");
         btnInsert.setEnabled(false);
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 70, -1));
 
         btnExit.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 70, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        dbCon = new DBConnection("system", "Lauri@ellen12");
+        dbCon.setDriver("oracle.jdbc.driver.OracleDriver");
+        dbCon.setConnectionString("jdbc:oracle:thin:@localhost:1521:xe");
+        
+        daoDep = new DAODepartment(dbCon.openConnection());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        dbCon.closeConnection();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        department = null;
+        department = daoDep.search(txtAbrev.getText());
+        
+        if (department == null) {
+            txtAbrev.setEnabled(true);
+            txtName.setEnabled(true);
+            txtName.requestFocus();
+            
+            btnSearch.setEnabled(false);
+            btnInsert.setEnabled(true);
+            btnUpdate.setEnabled(true);
+            btnDelete.setEnabled(false);
+        }else {
+            txtAbrev.setEnabled(false);
+            txtName.setEnabled(true);
+            txtName.requestFocus();
+            
+            btnSearch.setEnabled(false);
+            btnInsert.setEnabled(false);
+            btnUpdate.setEnabled(true);
+            btnDelete.setEnabled(true);
+        
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        department = new Department(txtAbrev.getText(), txtName.getText());
+        daoDep.insert(department);
+        
+        txtAbrev.setText(null);
+        txtName.setText(null);
+        txtAbrev.requestFocus();
+        
+        btnSearch.setEnabled(true);  
+        btnInsert.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+    }//GEN-LAST:event_btnInsertActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Update department info?") == 0) {
+            department.setName(txtName.getText());
+            daoDep.update(department);
+        }
+        
+        txtAbrev.setText(null);
+        txtName.setText(null);
+        txtAbrev.requestFocus();
+        
+        btnSearch.setEnabled(true);  
+        btnInsert.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Delete department info?") == 0) {
+            daoDep.delete(department);
+            
+            txtAbrev.setText(null);
+            txtName.setText(null);
+            txtAbrev.requestFocus();
+
+            btnSearch.setEnabled(true);  
+            btnInsert.setEnabled(false);
+            btnUpdate.setEnabled(false);
+            btnDelete.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -88,4 +213,7 @@ public class GUIDepartment extends javax.swing.JFrame {
     private javax.swing.JTextField txtAbrev;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
+    DBConnection dbCon = null;
+    DAODepartment daoDep = null;
+    Department department;
 }

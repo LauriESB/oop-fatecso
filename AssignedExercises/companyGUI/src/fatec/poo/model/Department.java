@@ -29,4 +29,8 @@ public class Department {
         employee.add(e);
         e.setDepartment(this);
     }
+    public void removeEmployee(Employee e) {
+        employee.remove(e);
+        e.setDepartment(null);
+    }
 }
